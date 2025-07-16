@@ -2,11 +2,9 @@ const { SWEETS } = require('../store/SWEETS');
 const { addSweet } = require('../app/addSweet.js');
 
 describe('addSweet', () => {
-
     beforeEach(() => {
         SWEETS.length = 0; // clear array
     });
-
 
     test("should generate UUIDs for each sweet", () => {
         addSweet("Kaju Katli", "Dry Fruit", 500, 20);
@@ -25,9 +23,9 @@ describe('addSweet', () => {
         expect(SWEETS[0].name).toBe("Kaju Katli");
     });
 
-    test("should not add sweet if validation fails", () => {
-        addSweet("", "Dry Fruit", 500, 20);
-
-        expect(SWEETS.length).toBe(0);
+    test("should throw error for invalid name", () => {
+        expect(() => {
+            addSweet("", "Dry Fruit", 500, 20);
+        }).toThrow("Invalid or missing sweet name.");
     });
 });
