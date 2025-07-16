@@ -4,7 +4,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "test:coverage": "jest --coverage",
+    "test:coverage-html": "jest --coverage --coverageReporters=html",
+    "test:report": "jest --reporters=default --reporters=jest-junit --outputFile=reports/junit.xml"
   },
   "keywords": [],
   "author": "",
