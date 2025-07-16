@@ -1,1 +1,3 @@
-export const SWEETS = [];
+const SWEETS = [];
+
+module.exports = {SWEETS};
