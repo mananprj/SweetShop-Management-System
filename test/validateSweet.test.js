@@ -1,4 +1,4 @@
-import validateSweet from "../utils/validateSweet.js";
+const { validateSweet } = require("../utils/validateSweet.js");
 
 describe("validateSweet", () => {
     test("should pass for valid input", () => {
