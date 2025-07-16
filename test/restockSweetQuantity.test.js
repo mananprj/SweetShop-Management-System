@@ -23,9 +23,9 @@ describe('restockSweetQuantity', () => {
 
     test("should throw error for invalid restock amount", () => {
 
-        expect(() => restockSweetQuantity("Kaju Katli", -3)).toThrow("Restock amount must be a positive integer.");
-        expect(() => restockSweetQuantity("Kaju Katli", 0)).toThrow("Restock amount must be a positive integer.");
-        expect(() => restockSweetQuantity("Kaju Katli", 1.5)).toThrow("Restock amount must be a positive integer.");
+        expect(() => restockSweetQuantity("Kaju Katli", -3)).toThrow("Amount must be a Positive integer and greater than zero.");
+        expect(() => restockSweetQuantity("Kaju Katli", 0)).toThrow("Amount must be a Positive integer and greater than zero.");
+        expect(() => restockSweetQuantity("Kaju Katli", 1.5)).toThrow("Amount must be a Positive integer and greater than zero.");
     });
-    
+
 });
