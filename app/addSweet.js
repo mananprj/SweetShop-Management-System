@@ -1,14 +1,14 @@
 const { v4: uuidv4 } = require('uuid');
-const { validateSweet } = require('../utils/validateSweet.js');
+// const { validateSweet } = require('../utils/validateSweet.js');
 const { SWEETS } = require('../store/SWEETS.js');
+const { validateName, validateCategory, validateAmount, validateQuantity } = require('../utils/validators.js');
 
 function addSweet(name, category, price, quantity){
-    const validation = validateSweet({ name, category, price, quantity });
-
-    if(!validation.isValid){
-        console.log("Validation failed: " + validation.errors.join(" "));
-        return;
-    }
+    
+    validateName(name);
+    validateCategory(category);
+    validateAmount(price);
+    validateQuantity(quantity);
 
     const newSweet = {
         id: uuidv4(),
