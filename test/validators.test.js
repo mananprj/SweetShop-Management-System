@@ -18,8 +18,8 @@ describe('validateAmount', () => {
     });
 
     test("should throw for negative, zero and non-number types", () => {
-        expect(() => validateAmount(-10)).toThrow("Price must be a number greater than 0.");
-        expect(() => validateAmount(0)).toThrow("Price must be a number greater than 0.");
-        expect(() => validateAmount("abc")).toThrow("Price must be a number greater than 0.");
+        expect(() => validateAmount(-10)).toThrow("Amount must be a Positive integer and greater than zero.");
+        expect(() => validateAmount(0)).toThrow("Amount must be a Positive integer and greater than zero.");
+        expect(() => validateAmount("abc")).toThrow("Amount must be a Positive integer and greater than zero.");
     });
 })
