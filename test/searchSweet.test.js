@@ -16,7 +16,7 @@ describe('searchSweetByKeyword', () => {
     test("should find sweets by category or name (partial match, case-insensitive", () => {
         const result = searchSweetByKeyword("syrupy");
 
-        expect(result).toLength(2);
+        expect(result.length).toBe(2);
         expect(result.map(s => s.name)).toEqual(expect.arrayContaining(["Gulab Jamun", "Rasgulla"]));
     })
 
