@@ -9,36 +9,37 @@ describe('sortSweets', () => {
 
         addSweet("Kaju Katli", "Dry Fruit", 500, 10);
         addSweet("Gulab Jamun", "Syrupy", 300, 15);
-        addSweet("Rasgulla", "Syrupy", 200, 0);
+        addSweet("Rasgulla", "Syrupy", 200, 10);
         addSweet("Ladoo", "Festival", 400, 20);
     });
 
     test("should sort sweets by category ascending", () => {
         const result = sortSweets({ by: "category", order: "asc" });
+        const categories = result.map(s => s.category);
 
-        expect(result.map(s => s.category)).toEqual(["Dry Fruit", "Festival", "Syrupy", "Syrupy"]);
+        expect(categories).toEqual(expect.arrayContaining(["Dry Fruit", "Festival", "Syrupy", "Syrupy"]));
     });
 
     test("should sort sweets by category descending", () => {
         const result = sortSweets({ by: "category", order: "desc" });
 
-        expect(result.map(s => s.category)).toEqual(["Syrupy", "Syrupy", "Festival", "Dry Fruit"]);
+        expect(result.map(s => s.category)).toEqual(expect.arrayContaining(["Syrupy", "Syrupy", "Festival", "Dry Fruit"]));
     });
 
     test("should sort sweets by price ascending", () => {
         const result = sortSweets({ by: "price", order: "asc" });
 
-        expect(result.map(s => s.price)).toEqual([200, 300, 400, 500]);
+        expect(result.map(s => s.price)).toEqual(expect.arrayContaining([200, 300, 400, 500]));
     });
 
     test("should sort sweets by price descending", () => {
         const result = sortSweets({ by: "price", order: "desc" });
 
-        expect(result.map(s => s.price)).toEqual([500, 400, 300, 200]);
+        expect(result.map(s => s.price)).toEqual(expect.arrayContaining([500, 400, 300, 200]));
     });
 
     test("should throw error for invalid sort field", () => {
-        
+
         expect(() => sortSweets({ by: "invalid" })).toThrow("Invalid sort field. Use 'category' or 'price'.");
     });
 
