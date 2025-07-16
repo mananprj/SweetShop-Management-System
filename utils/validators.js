@@ -1,3 +1,5 @@
+const { SWEETS } = require('../store/SWEETS.js');
+
 function validateName(name) {
   if (!name || typeof name !== "string" || !name.trim()) {
     throw new Error("Invalid or missing sweet name.");
@@ -14,4 +16,20 @@ function validateAmount(amount) {
   return amount;
 }
 
-module.exports = { validateName, validateAmount };
+function searchForSweet(name) {
+  const sweet = SWEETS.find(s => s.name.toLowerCase() === name.toLowerCase());
+
+  if(!sweet){
+    throw new Error(`Sweet "${name}" not found.`);
+  }
+}
+
+function checkSweetQuantity(name, quantity) {
+  const sweet = SWEETS.find(s => s.name.toLowerCase() === name.toLowerCase());
+
+  if (sweet.quantity < quantity) {
+    throw new Error(`Only ${sweet.quantity} ${sweet.name} sweets are available.`);
+  }
+}
+
+module.exports = { validateName, validateAmount, searchForSweet, checkSweetQuantity };
