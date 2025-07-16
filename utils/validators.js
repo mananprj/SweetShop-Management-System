@@ -8,7 +8,7 @@ function validateName(name) {
 
 function validateAmount(amount) {
   if (!Number.isInteger(amount) || amount <= 0) {
-    throw new Error("Price must be a number greater than 0.");
+    throw new Error("Amount must be a Positive integer and greater than zero.");
   }
 
   return amount;
