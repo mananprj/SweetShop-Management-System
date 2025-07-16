@@ -53,7 +53,3 @@ For detailed test [Coverage report](https://mananprj.github.io/SweetShop-Managem
 <div align="center">
   <img width="675" align="center" src="https://github.com/mananprj/SweetShop-Management-System/blob/main/assets/coverage-report.png" alt="AllModuleTestReport" />
 </div>
-
-## About
-
-Efficient sweet inventory system built with clean code and solid testing practices.
