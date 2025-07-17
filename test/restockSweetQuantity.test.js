@@ -18,7 +18,7 @@ describe('restockSweetQuantity', () => {
 
     test("should throw an error if the sweet does not exist", () => {
 
-        expect(() => restockSweetQuantity("Rasgulla", 5)).toThrow('Sweet with name "Rasgulla" not found.');
+        expect(() => restockSweetQuantity("Rasgulla", 5)).toThrow('Sweet "Rasgulla" not found.');
     });
 
     test("should throw error for invalid restock amount", () => {
