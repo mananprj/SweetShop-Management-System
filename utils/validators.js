@@ -27,17 +27,22 @@ function validateQuantity(quantity) {
 function searchForSweet(name) {
   const sweet = SWEETS.find(s => s.name.toLowerCase() === name.toLowerCase());
 
-  if(!sweet){
+  if (!sweet) {
     throw new Error(`Sweet "${name}" not found.`);
   }
+
+  return sweet;
 }
 
 function checkSweetQuantity(name, quantity) {
-  const sweet = SWEETS.find(s => s.name.toLowerCase() === name.toLowerCase());
+  const sweet = searchForSweet(name);
 
   if (sweet.quantity < quantity) {
     throw new Error(`Only ${sweet.quantity} ${sweet.name} sweets are available.`);
   }
+
+  sweet.quantity -= quantity;
+  return sweet;
 }
 
 module.exports = { validateName, validateAmount, searchForSweet, checkSweetQuantity, validateCategory, validateQuantity };
