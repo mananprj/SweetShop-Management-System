@@ -15,17 +15,9 @@ function purchaseSweets(orderList){
         validateAmount(quantity);
         validateName(name);
 
-        searchForSweet(name);
-        checkSweetQuantity(name, quantity);
-    }
+        const sweet = checkSweetQuantity(name, quantity);
 
-    for(const item of orderList){
-        const { name, quantity } = item;
-        const sweet = SWEETS.find(s => s.name.toLowerCase() === name.toLowerCase());
-
-        sweet.quantity -= quantity;
-
-        receipt.push({
+         receipt.push({
             name: sweet.name,
             purchased: quantity,
             remaining: sweet.quantity
