@@ -1,4 +1,4 @@
-const { validateName, validateAmount, validateCategory, validateQuantity } = require('../utils/validators.js');
+const { validateName, validateAmount, validatekeyword, validateQuantity } = require('../utils/validators.js');
 const { SWEETS } = require('../store/SWEETS.js');
 const { searchForSweet, checkSweetQuantity } = require('../utils/validators.js');
 const { addSweet } = require('../app/addSweet.js');
@@ -23,15 +23,15 @@ describe('validateName', () => {
     })
 });
 
-describe('validateCategory', () => {
+describe('validatekeyword', () => {
     test("should not throw for valid category", () => {
-        expect(() => validateCategory("Syrupy")).not.toThrow();
+        expect(() => validatekeyword("Syrupy")).not.toThrow();
     });
 
     test("should throw empty, null and non-string type", () => {
-        expect(() => validateCategory("")).toThrow("Invalid or missing sweet category.");
-        expect(() => validateCategory(null)).toThrow("Invalid or missing sweet category.");
-        expect(() => validateCategory(123)).toThrow("Invalid or missing sweet category.");
+        expect(() => validatekeyword("")).toThrow("Invalid or missing sweet keyword.");
+        expect(() => validatekeyword(null)).toThrow("Invalid or missing sweet keyword.");
+        expect(() => validatekeyword(123)).toThrow("Invalid or missing sweet keyword.");
     })
 });
 
