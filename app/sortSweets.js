@@ -1,5 +1,5 @@
 const { SWEETS } = require('../store/SWEETS.js');
-const { sortByCategory } = require('../utils/validators.js')
+const { sortByCategory, sortByPrice } = require('../utils/validators.js')
 
 function sortSweets({ by = "category", order = "asc" }){
 
@@ -11,16 +11,13 @@ function sortSweets({ by = "category", order = "asc" }){
 
     } else if(by === "price"){
 
-        sorted.sort((a, b) => {
-            return order === "asc" ? a.price - b.price : b.price - a.price;
-        });
+        return sortByPrice(sorted, order);
 
     } else{
 
         throw new Error("Invalid sort field. Use 'category' or 'price'.");
     }
 
-    return sorted;
 }
 
 module.exports = { sortSweets };
