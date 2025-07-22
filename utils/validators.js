@@ -6,9 +6,9 @@ function validateName(name) {
   }
 }
 
-function validateCategory(category) {
-  if (!category || typeof category !== "string" || !category.trim()) {
-    throw new Error("Invalid or missing sweet category.");
+function validatekeyword(keyword) {
+  if (!keyword || typeof keyword !== "string" || !keyword.trim()) {
+    throw new Error("Invalid or missing sweet keyword.");
   }
 }
 
@@ -45,4 +45,16 @@ function checkSweetQuantity(name, quantity) {
   return sweet;
 }
 
-module.exports = { validateName, validateAmount, searchForSweet, checkSweetQuantity, validateCategory, validateQuantity };
+function sortByCategory(sorted, order){
+
+     sorted.sort((a, b) => {
+            const aCat = a.category.toLowerCase();
+            const bCat = b.category.toLowerCase();
+            return order === "asc" ? aCat.localeCompare(bCat) : bCat.localeCompare(aCat);
+        });
+
+    return sorted;
+}
+
+
+module.exports = { validateName, validateAmount, searchForSweet, checkSweetQuantity, validatekeyword, validateQuantity , sortByCategory };
