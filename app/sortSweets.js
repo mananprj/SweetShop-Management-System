@@ -1,4 +1,5 @@
 const { SWEETS } = require('../store/SWEETS.js');
+const { sortByCategory } = require('../utils/validators.js')
 
 function sortSweets({ by = "category", order = "asc" }){
 
@@ -6,11 +7,7 @@ function sortSweets({ by = "category", order = "asc" }){
 
     if(by === "category"){
 
-        sorted.sort((a, b) => {
-            const aCat = a.category.toLowerCase();
-            const bCat = b.category.toLowerCase();
-            return order === "asc" ? aCat.localeCompare(bCat) : bCat.localeCompare(aCat);
-        });
+      return sortByCategory(sorted,order);
 
     } else if(by === "price"){
 
