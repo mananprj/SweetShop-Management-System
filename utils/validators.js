@@ -45,16 +45,25 @@ function checkSweetQuantity(name, quantity) {
   return sweet;
 }
 
-function sortByCategory(sorted, order){
+function sortByCategory(sorted, order) {
 
-     sorted.sort((a, b) => {
-            const aCat = a.category.toLowerCase();
-            const bCat = b.category.toLowerCase();
-            return order === "asc" ? aCat.localeCompare(bCat) : bCat.localeCompare(aCat);
-        });
+  sorted.sort((a, b) => {
+    const aCat = a.category.toLowerCase();
+    const bCat = b.category.toLowerCase();
+    return order === "asc" ? aCat.localeCompare(bCat) : bCat.localeCompare(aCat);
+  });
 
-    return sorted;
+  return sorted;
+}
+
+function sortByPrice(sorted, order) {
+
+  sorted.sort((a, b) => {
+    return order === "asc" ? a.price - b.price : b.price - a.price;
+  });
+
+  return sorted;
 }
 
 
-module.exports = { validateName, validateAmount, searchForSweet, checkSweetQuantity, validatekeyword, validateQuantity , sortByCategory };
+module.exports = { validateName, validateAmount, searchForSweet, checkSweetQuantity, validatekeyword, validateQuantity, sortByCategory, sortByPrice };
